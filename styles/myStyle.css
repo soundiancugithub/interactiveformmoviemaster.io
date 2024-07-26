@@ -1,0 +1,397 @@
+﻿body {
+    font-family: 'Heebo', sans-serif; /* קביעת סוג הגופן */
+    direction: rtl; /* כיוון הטקסט מימין לשמאל */
+    background-color: #121212; /* צבע רקע */
+    color: #FFFFFF; /* צבע טקסט */
+    margin: 0; /* ביטול השוליים של הדף */
+    padding: 0; /* ביטול הריווח הפנימי של הדף */
+    position: relative; /* מיקום יחסי */
+    overflow-x: hidden; /* מניעת גלילה אופקית */
+    background: url('../images/STAR BACKGROUND-100.jpg') no-repeat center center fixed; /* הגדרת תמונת רקע */
+    background-size: cover; /* כיסוי מלא של תמונת הרקע */
+}
+/* עיצוב כללי של הדף */
+
+#container {
+    width: 100%; /* רוחב מלא */
+    max-width: 1200px; /* רוחב מקסימלי */
+    margin: 0 auto; /* מיקום מרכזי */
+    padding: 20px; /* ריווח פנימי */
+    background-color: rgba(18, 18, 18, 0.8); /* צבע רקע שקוף */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* הצללה */
+    position: relative; /* מיקום יחסי */
+    z-index: 1; /* מיקום שכבה עליונה */
+}
+/* עיצוב המיכל הראשי */
+
+nav {
+    display: flex; /* תצוגת פלואו (flex) */
+    justify-content: center; /* מיקום תוכן מרכזי */
+    align-items: center; /* יישור פריטים במרכז */
+    padding: 15px 0; /* ריווח פנימי עליון ותחתון */
+    background-color: rgba(0, 0, 0, 0.5); /* צבע רקע שקוף */
+    position: sticky; /* מיקום דביק */
+    top: 0; /* מיקום עליון */
+    z-index: 1000; /* מיקום שכבה עליונה */
+}
+/* עיצוב תפריט הניווט */
+
+nav .logo {
+    height: 60px; /* גובה הלוגו */
+    margin-right: 20px; /* רווח מימין */
+    transition: transform 0.3s ease; /* מעבר חלק */
+}
+
+nav .logo:hover {
+    transform: translateY(-5px); /* הזזת הלוגו למעלה בהזזה */
+}
+/* עיצוב הלוגו */
+
+nav ul {
+    list-style-type: none; /* ביטול רשימה מסודרת */
+    padding: 0; /* ביטול ריווח פנימי */
+    display: flex; /* תצוגת פלואו (flex) */
+    justify-content: center; /* מיקום תוכן מרכזי */
+    margin: 0; /* ביטול שוליים */
+}
+
+nav ul li {
+    margin: 0 15px; /* רווח בין פריטים */
+}
+
+nav ul li a {
+    text-decoration: none; /* ביטול קו תחתון */
+    color: #FFFFFF; /* צבע טקסט */
+    font-size: 16px; /* גודל גופן */
+    font-family: 'Assistant', sans-serif; /* סוג גופן */
+    transition: color 0.3s ease, transform 0.3s ease; /* מעבר חלק */
+    display: inline-block; /* תצוגת בלוק בשורה */
+}
+
+nav ul li a:hover {
+    color: #FFD700; /* צבע טקסט בהזזה */
+    transform: translateY(-3px); /* הזזת הטקסט למעלה בהזזה */
+}
+/* עיצוב פריטי התפריט */
+
+.content {
+    margin-top: 50px; /* רווח עליון */
+    text-align: center; /* יישור טקסט למרכז */
+}
+/* עיצוב תוכן מרכזי */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Assistant', sans-serif; /* סוג גופן */
+    font-weight: 700; /* עובי גופן */
+    text-align: center; /* יישור טקסט למרכז */
+    color: #FFD700; /* צבע טקסט צהוב */
+}
+/* עיצוב כותרות */
+
+h1 {
+    font-size: 2.5em; /* גודל גופן */
+    margin-bottom: 20px; /* רווח תחתון */
+}
+/* עיצוב כותרת ראשית */
+
+p {
+    font-weight: 400; /* עובי גופן */
+    font-size: 1.1em; /* גודל גופן */
+    line-height: 1.6; /* גובה שורה */
+    margin-bottom: 15px; /* רווח תחתון */
+    text-align: center; /* יישור טקסט למרכז */
+}
+/* עיצוב פסקאות */
+
+h2 {
+    margin-top: 50px; /* רווח עליון */
+    font-size: 3em; /* גודל גופן */
+}
+/* עיצוב כותרת שנייה */
+
+.carousel {
+    position: relative; /* מיקום יחסי */
+    max-width: 800px; /* רוחב מקסימלי */
+    margin: 50px auto; /* מיקום מרכזי עם רווח עליון ותחתון */
+    overflow: hidden; /* הסתרת תוכן חורג */
+    border-radius: 10px; /* פינות מעוגלות */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* הצללה */
+}
+/* עיצוב קרוסלה */
+
+.carousel-inner {
+    display: flex; /* תצוגת פלואו (flex) */
+    transition: transform 0.5s ease; /* מעבר חלק */
+}
+
+.carousel-item {
+    min-width: 100%; /* רוחב מינימלי */
+}
+
+.carousel-item img {
+    width: 100%; /* רוחב מלא */
+    height: auto; /* גובה אוטומטי */
+    object-fit: cover; /* התאמת תמונה */
+}
+/* עיצוב פריטי קרוסלה */
+
+.carousel-control {
+    position: absolute; /* מיקום מוחלט */
+    top: 50%; /* מיקום מרכזי אנכי */
+    transform: translateY(-50%); /* הזזת הכפתור למרכז אנכי */
+    background-color: rgba(0, 0, 0, 0.7); /* צבע רקע שקוף */
+    color: white; /* צבע טקסט */
+    border: none; /* ללא מסגרת */
+    padding: 15px; /* ריווח פנימי */
+    cursor: pointer; /* שינוי סמן לעכבר */
+    font-size: 18px; /* גודל גופן */
+    transition: background-color 0.3s ease; /* מעבר חלק */
+}
+
+.carousel-control:hover {
+    background-color: rgba(0, 0, 0, 0.9); /* צבע רקע כהה בהזזה */
+}
+
+.carousel-control.prev {
+    left: 10px; /* מיקום שמאלי */
+    border-radius: 0 5px 5px 0; /* פינות מעוגלות בצד שמאל */
+}
+
+.carousel-control.next {
+    right: 10px; /* מיקום ימני */
+    border-radius: 5px 0 0 5px; /* פינות מעוגלות בצד ימין */
+}
+
+.carousel-control.prev::before,
+.carousel-control.next::before {
+    content: ''; /* הסרת תוכן החץ */
+}
+
+.carousel-control.prev {
+    content: '>'; /* טקסט לכפתור שמאל */
+}
+
+.carousel-control.next {
+    content: '<'; /* טקסט לכפתור ימין */
+}
+/* עיצוב כפתורי קרוסלה */
+
+.recommendations {
+    text-align: center; /* יישור טקסט למרכז */
+    margin-top: 50px; /* רווח עליון */
+    background-color: rgba(255, 255, 255, 0.05); /* צבע רקע שקוף */
+    padding: 30px; /* ריווח פנימי */
+    border-radius: 10px; /* פינות מעוגלות */
+}
+/* עיצוב חלק המלצות */
+
+.recommendations p {
+    display: flex; /* תצוגת פלואו (flex) */
+    justify-content: center; /* מיקום תוכן מרכזי */
+    align-items: center; /* יישור פריטים במרכז */
+    font-size: 1.1em; /* גודל גופן */
+    margin: 15px 0; /* רווח עליון ותחתון */
+    background-color: rgba(255, 255, 255, 0.1); /* צבע רקע שקוף */
+    padding: 15px; /* ריווח פנימי */
+    border-radius: 5px; /* פינות מעוגלות */
+    transition: transform 0.3s ease; /* מעבר חלק */
+}
+
+.recommendations p:hover {
+    transform: translateY(-5px); /* הזזת הטקסט למעלה בהזזה */
+}
+
+.recommendations i {
+    margin-right: 10px; /* רווח מימין */
+    color: #FFD700; /* צבע טקסט צהוב */
+}
+/* עיצוב פסקאות המלצות */
+
+.background-image {
+    position: fixed; /* מיקום קבוע */
+    z-index: -1; /* מיקום שכבה תחתונה */
+    opacity: 0.2; /* שקיפות */
+    pointer-events: none; /* מניעת אינטראקציה */
+}
+/* עיצוב תמונת רקע */
+
+.breadcrumb-nav {
+    position: relative; /* מיקום יחסי */
+    width: 100%; /* רוחב מלא */
+    height: 30px; /* גובה */
+    margin-bottom: 20px; /* רווח תחתון */
+}
+/* עיצוב ניווט פירורי לחם */
+
+.breadcrumb {
+    position: absolute; /* מיקום מוחלט */
+    right: 0; /* מיקום ימני */
+    top: 0; /* מיקום עליון */
+    list-style: none; /* ביטול רשימה מסודרת */
+    padding: 0; /* ביטול ריווח פנימי */
+    margin: 0; /* ביטול שוליים */
+}
+/* עיצוב רשימת פירורי לחם */
+
+.breadcrumb-item {
+    display: inline-block; /* תצוגת בלוק בשורה */
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: ">"; /* תו מפריד בין פריטים */
+    padding: 0 5px; /* ריווח בין תווים */
+}
+/* עיצוב פריטי פירורי לחם */
+
+.movie-container {
+    display: flex; /* תצוגת פלואו (flex) */
+    align-items: flex-start; /* יישור פריטים לתחילת הקו */
+    margin-top: 40px; /* רווח עליון */
+    margin-bottom: 30px; /* רווח תחתון */
+}
+/* עיצוב מיכל סרטים */
+
+.movie-image {
+    flex: 0 0 auto; /* גודל קבוע */
+    margin-left: 20px; /* רווח משמאל */
+    text-align: center; /* יישור טקסט למרכז */
+}
+
+.movie-image img {
+    max-width: 100%; /* רוחב מקסימלי */
+    height: auto; /* גובה אוטומטי */
+    margin-bottom: 10px; /* רווח תחתון */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* מעבר חלק */
+}
+
+.movie-image:hover img {
+    transform: scale(1.05); /* הגדלת התמונה בהזזה */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6); /* הצללה */
+}
+/* עיצוב תמונות סרטים */
+
+.movie-info {
+    flex: 1 1 auto; /* גודל אוטומטי */
+    text-align: right; /* יישור טקסט לימין */
+    padding-right: 20px; /* רווח פנימי מימין */
+}
+
+.movie-info h3 {
+    margin-top: 0; /* ביטול רווח עליון */
+}
+
+.movie-info p {
+    text-align: right; /* יישור טקסט לימין */
+}
+
+.movie-info p strong {
+    color: #FFD700; /* צבע טקסט צהוב */
+}
+/* עיצוב מידע סרטים */
+
+/* Footer styles */
+footer {
+    padding: 20px 0; /* ריווח פנימי עליון ותחתון */
+    background-color: rgba(0, 0, 0, 0.5); /* צבע רקע שקוף */
+    text-align: center; /* יישור טקסט למרכז */
+}
+
+.footer-container {
+    display: flex; /* תצוגת פלואו (flex) */
+    justify-content: center; /* מיקום תוכן מרכזי */
+    align-items: center; /* יישור פריטים במרכז */
+}
+
+footer ul {
+    list-style-type: none; /* ביטול רשימה מסודרת */
+    padding: 0; /* ביטול ריווח פנימי */
+    margin: 0; /* ביטול שוליים */
+    display: flex; /* תצוגת פלואו (flex) */
+    justify-content: center; /* מיקום תוכן מרכזי */
+}
+
+footer ul li {
+    margin: 0 15px; /* רווח בין פריטים */
+}
+
+footer ul li a {
+    text-decoration: none; /* ביטול קו תחתון */
+    color: #FFFFFF; /* צבע טקסט */
+    font-size: 16px; /* גודל גופן */
+    font-family: 'Assistant', sans-serif; /* סוג גופן */
+    transition: color 0.3s ease, transform 0.3s ease; /* מעבר חלק */
+    display: inline-block; /* תצוגת בלוק בשורה */
+}
+
+footer ul li a:hover {
+    color: #FFD700; /* צבע טקסט בהזזה */
+    transform: translateY(-3px); /* הזזת הטקסט למעלה בהזזה */
+}
+/* עיצוב פוטר */
+
+.team-section {
+    text-align: center; /* יישור טקסט למרכז */
+    margin-top: 50px; /* רווח עליון */
+}
+/* עיצוב חלק צוות */
+
+.team-container {
+    display: flex; /* תצוגת פלואו (flex) */
+    justify-content: center; /* מיקום תוכן מרכזי */
+    align-items: center; /* יישור פריטים במרכז */
+    gap: 20px; /* רווח בין פריטים */
+    margin-top: 20px; /* רווח עליון */
+}
+/* עיצוב מיכל צוות */
+
+.team-member {
+    text-align: center; /* יישור טקסט למרכז */
+}
+/* עיצוב פריט צוות */
+
+.team-photo {
+    width: 100px; /* רוחב תמונה */
+    height: 100px; /* גובה תמונה */
+    border-radius: 50%; /* עיגול תמונה */
+    object-fit: cover; /* התאמת תמונה */
+    margin-bottom: 10px; /* רווח תחתון */
+}
+/* עיצוב תמונת צוות */
+
+.menu-section h4 {
+    color: #FFD700;
+}
+/* עיצוב כותרות הקטגוריות */
+
+.menu-item {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    margin: 5px;
+}
+.menu-item.selected {
+    opacity: 1.0;
+}
+/* עיצוב פריטי התפריט */
+
+.hidden {
+    display: none;
+}
+/* עיצוב אלמנטים מוסתרים */
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+/* עיצוב כפתור מושבת */
+
+.snack-bar-sign {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px auto;
+}
+/* עיצוב תמונת כותרת */
