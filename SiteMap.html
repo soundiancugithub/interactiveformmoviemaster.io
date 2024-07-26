@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מפת האתר</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/myStyle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&family=Heebo:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" type="image/png" href="images/PopcornLogo.png"> <!-- Favicon -->
+    <style>
+        .sitemap-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .sitemap-link {
+            position: relative;
+            padding: 10px 20px;
+            margin: 10px 0;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .sitemap-link:hover {
+            background-color: #555;
+        }
+
+        .sitemap-link:after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            width: 2px;
+            height: 20px;
+            background-color: #fff;
+            transform: translateX(-50%);
+        }
+
+        .sitemap-link:last-child:after {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <!-- Navbar -->
+        <nav aria-label="main-nav">
+            <a href="index.html"><img src="images/PopcornLogo.png" alt="Logo" class="logo"></a>
+            <ul>
+                <li><a href="index.html">דף הבית</a></li>
+                <li><a href="stars.html">החמים של השנה</a></li>
+                <li><a href="classics.html">קלאסיקות</a></li>
+                <li><a href="siteMap.html">מפת אתר</a></li>
+                <li><a href="about.html">אודות</a></li>
+                <li><a href="contactUs.html">צור קשר</a></li>
+                <li><a href="Form.html">טופס אינטרקטיבי</a></li>
+            </ul>
+        </nav>
+
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb" class="breadcrumb-nav">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">דף הבית</a></li>
+                <li class="breadcrumb-item active" aria-current="page">מפת אתר</li>
+            </ol>
+        </nav>
+
+        <div class="content">
+            <h1>מפת האתר</h1>
+            <div class="sitemap-container">
+                <a href="index.html" class="sitemap-link">דף הבית</a>
+                <a href="stars.html" class="sitemap-link">החמים של השנה</a>
+                <a href="classics.html" class="sitemap-link">קלאסיקות</a>
+                <a href="siteMap.html" class="sitemap-link">מפת אתר</a>
+                <a href="about.html" class="sitemap-link">אודות</a>
+                <a href="contactUs.html" class="sitemap-link">צור קשר</a>
+
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="footer-container">
+                <ul>
+                    <li><a href="index.html">דף הבית</a></li>
+                    <li><a href="stars.html">החמים של השנה</a></li>
+                    <li><a href="classics.html">קלאסיקות</a></li>
+                    <li><a href="siteMap.html">מפת אתר</a></li>
+                    <li><a href="about.html">אודות</a></li>
+                    <li><a href="contactUs.html">צור קשר</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+﻿<!DOCTYPE html>
+<html lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Master</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/myStyle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&family=Heebo:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="icon" type="image/png" href="images/PopcornLogo.png"> <!-- Favicon -->
+</head>
+<body>
+    <div id="container">
+        <!-- Navbar -->
+        <nav aria-label="main-nav">
+            <a href="index.html"><img src="images/PopcornLogo.png" alt="Logo" class="logo"></a>
+            <ul>
+                <li><a href="index.html">דף הבית</a></li>
+                <li><a href="stars.html">החמים של השנה</a></li>
+                <li><a href="classics.html">קלאסיקות</a></li>
+                <li><a href="siteMap.html">מפת אתר</a></li>
+                <li><a href="about.html">אודות</a></li>
+                <li><a href="contactUs.html">צור קשר</a></li>
+                <li><a href="Form.html">טופס אינטרקטיבי</a></li>
+            </ul>
+        </nav>
+        <div class="content">
+            <h1>ברוכים הבאים לMovie Master</h1>
+            <p>כאן אנחנו נמליץ לכם על הסרטים שהכי הצליחו בשנים האחרונות, אנחנו נהיה מעודכנים בשבילכם.</p>
+            <p>אתם מוזמנים להנות ממבחר עשיר של המלצות לסרטים איכותיים מכל הז׳אנרים והעשורים.</p>
+        </div>
+        
+        <h2>משתמשים אהבו הכי הרבה</h2>
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item">
+                    <img src="images/Holit.svg" alt="The Godfather">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/ha sandak .svg" alt="Tom Cruise - The Mummy">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/hakol ba rosh.svg" alt="Angelina Jolie - Solett">
+                </div>
+            </div>
+            <button class="carousel-control prev" onclick="prevSlide()"> > </button>
+            <button class="carousel-control next" onclick="nextSlide()"> < </button>
+        </div>
+        
+        <h2> ממליצים עלינו </h2>
+        <div class="recommendations">
+            <p><i class="fas fa-star"></i> אירית: "MovieMaster הוא האתר המועדף עליי לצפייה בסרטים קלאסיים! המבחר פשוט מדהים."</p>
+            <p><i class="fas fa-star"></i> גל: "מצאתי כאן את כל הסרטים המודרניים שרציתי לראות. חוויית הצפייה פשוט מעולה."</p>
+            <p><i class="fas fa-star"></i> שיר: "השירות מצוין והאתר נוח לשימוש. ממליץ בחום לכל אוהבי הסרטים."</p>
+        </div>
+        
+        <!-- Footer -->
+        <footer>
+            <div class="footer-container">
+                <ul>
+                    <li><a href="index.html">דף הבית</a></li>
+                    <li><a href="stars.html">החמים של השנה</a></li>
+                    <li><a href="classics.html">קלאסיקות</a></li>
+                    <li><a href="siteMap.html">מפת אתר</a></li>
+                    <li><a href="about.html">אודות</a></li>
+                    <li><a href="contactUs.html">צור קשר</a></li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        const intervalTime = 3000; // Time in milliseconds
+        
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.display = i === index ? 'block' : 'none';
+            });
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+        
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            showSlide(currentSlide);
+            setInterval(nextSlide, intervalTime); // Automatically change slides
+        });
+    </script>
+</body>
+</html>

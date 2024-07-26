@@ -1,0 +1,205 @@
+﻿<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>הזמנת דוכן</title>
+    <link rel="stylesheet" href="styles/myStyle.css">
+    <script src="jScripts/JavaScript.js" defer></script>
+    <style>
+        /* Existing CSS */
+
+        .menu-item {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            opacity: 0.5;
+            cursor: pointer;
+            transition: opacity 0.3s;
+            margin: 5px;
+        }
+        .menu-item.selected {
+            opacity: 1.0;
+        }
+        .hidden {
+            display: none;
+        }
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .menu-section {
+            margin-bottom: 20px;
+        }
+        .snack-bar-sign {
+            width: 200px;
+            height: auto;
+            display: block;
+            margin: 0 auto 20px auto;
+        }
+        .form-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+        .popup h3 {
+            color: black;
+        }
+        .popup p {
+            color: black;
+        }
+        .box {
+            border: 1px solid #FFD700;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        .choice-menu {
+            border: 1px solid #FFD700;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav aria-label="main-nav">
+        <a href="index.html"><img src="images/PopcornLogo.png" alt="Logo" class="logo"></a>
+        <ul>
+            <li><a href="index.html">דף הבית</a></li>
+            <li><a href="stars.html">החמים של השנה</a></li>
+            <li><a href="classics.html">קלאסיקות</a></li>
+            <li><a href="siteMap.html">מפת אתר</a></li>
+            <li><a href="about.html">אודות</a></li>
+            <li><a href="contactUs.html">צור קשר</a></li>
+            <li><a href="Form.html">טופס אינטרקטיבי</a></li>
+        </ul>
+    </nav>
+    <div id="container">
+        <img src="images/Snack_bar_sign.jpg" alt="Snack Bar" class="snack-bar-sign">
+        <form id="boothForm" oninput="updateForm()" onsubmit="submitForm(event)">
+            <div>
+                <label for="name">שם מלא:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+                <label for="comment">הערות להזמנה:</label>
+                <textarea id="comment" name="comment"></textarea>
+            </div>
+            
+            <div class="form-container">
+                <!-- תפריט בחירת המשתמש -->
+                <div class="choice-menu box">
+                    <h3>מה תרצה לאכול?</h3>
+                    
+                    <!-- פופקורן -->
+                    <h4>פופקורן</h4>
+                    <input type="radio" id="popcorn1" name="popcorn" value="פופקורן גדול" data-img="Big_Popcorn">
+                    <label for="popcorn1">פופקורן גדול</label><br>
+                    <input type="radio" id="popcorn2" name="popcorn" value="פופקורן קטן" data-img="Small_Popcorn">
+                    <label for="popcorn2">פופקורן קטן</label><br>
+                    <input type="radio" id="popcorn3" name="popcorn" value="פופקורן בינוני" data-img="Medium_Popcorn">
+                    <label for="popcorn3">פופקורן בינוני</label><br>
+                    
+                    <!-- שתייה -->
+                    <h4>שתייה</h4>
+                    <input type="radio" id="drink1" name="drink" value="קולה" data-img="Cola_Juice">
+                    <label for="drink1">קולה</label><br>
+                    <input type="radio" id="drink2" name="drink" value="לימונדה" data-img="Lemonade_Juice">
+                    <label for="drink2">לימונדה</label><br>
+                    <input type="radio" id="drink3" name="drink" value="ענבים" data-img="Grape_Juice">
+                    <label for="drink3">ענבים</label><br>
+                    <input type="radio" id="drink4" name="drink" value="מים" data-img="Water">
+                    <label for="drink4">מים</label><br>
+                    
+                    <!-- מאפים ועוגיות -->
+                    <h4>מאפים ועוגיות</h4>
+                    <input type="checkbox" id="cookie1" name="food" value="עוגיית שוקולד צ'יפ" data-img="Chocolate_Chip_Cookie">
+                    <label for="cookie1">עוגיית שוקולד צ'יפ</label><br>
+                    <input type="checkbox" id="cookie2" name="food" value="עוגיות ירח" data-img="Moon_Cookies">
+                    <label for="cookie2">עוגיות ירח</label><br>
+                    <input type="checkbox" id="pastry1" name="food" value="ופלים" data-img="Waffles">
+                    <label for="pastry1">ופלים</label><br>
+                    <input type="checkbox" id="pastry2" name="food" value="בייגלה" data-img="Pretsels">
+                    <label for="pastry2">בייגלה</label><br>
+
+                    <!-- צ'יפס -->
+                    <h4>צ'יפס</h4>
+                    <input type="checkbox" id="chips1" name="food" value="שקית צ'יפס כתומה" data-img="Orange_Chip_Bag">
+                    <label for="chips1">שקית צ'יפס כתומה</label><br>
+                    <input type="checkbox" id="chips2" name="food" value="שקית צ'יפס אדומה" data-img="Red_Chip_Bag">
+                    <label for="chips2">שקית צ'יפס אדומה</label><br>
+                    <input type="checkbox" id="chips3" name="food" value="פחית צ'יפס כתומה" data-img="Orange_Chip_Can">
+                    <label for="chips3">פחית צ'יפס כתומה</label><br>
+                    <input type="checkbox" id="chips4" name="food" value="פחית צ'יפס אדומה" data-img="Red_Chip_Can">
+                    <label for="chips4">פחית צ'יפס אדומה</label><br>
+                    <input type="checkbox" id="chips5" name="food" value="פחית צ'יפס סגולה" data-img="Purple_Chip_Can">
+                    <label for="chips5">פחית צ'יפס סגולה</label><br>
+                    <input type="checkbox" id="chips6" name="food" value="פחית צ'יפס צהובה" data-img="Yellow_Chip_Can">
+                    <label for="chips6">פחית צ'יפס צהובה</label><br>
+                </div>
+                
+                <!-- תפריט הצגת הפריטים לפי קטגוריות -->
+                <div class="menu box">
+                    <h3>פריטי המזון:</h3>
+                    
+                    <!-- פופקורן -->
+                    <div class="menu-section">
+                        <h4>פופקורן</h4>
+                        <img src="images/Big_Popcorn.jpg" alt="פופקורן גדול" class="menu-item" data-item="Big_Popcorn">
+                        <img src="images/Small_Popcorn.jpg" alt="פופקורן קטן" class="menu-item" data-item="Small_Popcorn">
+                        <img src="images/Medium_Popcorn.jpg" alt="פופקורן בינוני" class="menu-item" data-item="Medium_Popcorn">
+                    </div>
+                    
+                    <!-- שתייה -->
+                    <div class="menu-section">
+                        <h4>שתייה</h4>
+                        <img src="images/Cola_Juice.jpg" alt="קולה" class="menu-item" data-item="Cola_Juice">
+                        <img src="images/Lemonade_Juice.jpg" alt="לימונדה" class="menu-item" data-item="Lemonade_Juice">
+                        <img src="images/Grape_Juice.jpg" alt="ענבים" class="menu-item" data-item="Grape_Juice">
+                        <img src="images/Water.jpg" alt="מים" class="menu-item" data-item="Water">
+                    </div>
+
+                    <!-- מאפים ועוגיות -->
+                    <div class="menu-section">
+                        <h4>מאפים ועוגיות</h4>
+                        <img src="images/Chocolate_Chip_Cookie.jpg" alt="עוגיית שוקולד צ'יפ" class="menu-item" data-item="Chocolate_Chip_Cookie">
+                        <img src="images/Moon_Cookies.jpg" alt="עוגיות ירח" class="menu-item" data-item="Moon_Cookies">
+                        <img src="images/Waffles.jpg" alt="ופלים" class="menu-item" data-item="Waffles">
+                        <img src="images/Pretsels.jpg" alt="בייגלה" class="menu-item" data-item="Pretsels">
+                    </div>
+                    
+                    <!-- צ'יפס -->
+                    <div class="menu-section">
+                        <h4>צ'יפס</h4>
+                        <img src="images/Orange_Chip_Bag.jpg" alt="שקית צ'יפס כתומה" class="menu-item" data-item="Orange_Chip_Bag">
+                        <img src="images/Red_Chip_Bag.jpg" alt="שקית צ'יפס אדומה" class="menu-item" data-item="Red_Chip_Bag">
+                        <img src="images/Orange_Chip_Can.jpg" alt="פחית צ'יפס כתומה" class="menu-item" data-item="Orange_Chip_Can">
+                        <img src="images/Red_Chip_Can.jpg" alt="פחית צ'יפס אדומה" class="menu-item" data-item="Red_Chip_Can">
+                        <img src="images/Purple_Chip_Can.jpg" alt="פחית צ'יפס סגולה" class="menu-item" data-item="Purple_Chip_Can">
+                        <img src="images/Yellow_Chip_Can.jpg" alt="פחית צ'יפס צהובה" class="menu-item" data-item="Yellow_Chip_Can">
+                    </div>
+                </div>
+            </div>
+            <button type="submit" id="submitButton" disabled>שלח הזמנה</button>
+        </form>
+        <div id="result" class="result"></div>
+    </div>
+
+    <!-- חלון קופץ -->
+    <div class="popup" id="popup">
+        <h3>סיכום הזמנה</h3>
+        <p id="popupContent"></p>
+        <button onclick="closePopup()">סגור</button>
+    </div>
+</body>
+</html>
